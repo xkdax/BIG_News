@@ -1,0 +1,19 @@
+body {
+    font-family: cursive;
+    background-color: #00880020;
+    position: fixed;
+    left: 43%;
+    text-align: center;
+}
+li {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+
+}
+li:before {
+  content: "■";
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
