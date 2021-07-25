@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+    {{ block.super }}
+<!--<h2> Hyper news</h2>-->
+    <!-- <label for="site-search">Search:</label>
+<form action="/examples/php-scripts/search.php" method="post">
+    <input type="search" id="site-search" name="q" placeholder="Search the site..."
+        aria-label="Search through site content">
+    <input type="submit" value="Search">
+     <button>Search</button>
+</form>  -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- тут поисковая строка -->
+    <form action="" method="get">
+      <input type="text" placeholder="Search..." name="q">
+      <button type="submit"><i class="fa fa-search"></i></button>
+        {% csrf_token %}
+    </form>
+
+<!-- тут новости -->
+    {% for data, infa in new_dict.items %}
+        <h4> {{data}} </h4>
+        <ul>
+             {% for info in infa %}
+                 <li> <a href="/news/{{info.link}}/">{{ info.title }} </a></li>
+             {% endfor %}
+        </ul>
+        {% endfor %}
+
+<!--создание новости-->
+<hr>
+<h3><a href="/news/create/">add news</a></h3>
+{% endblock %}
